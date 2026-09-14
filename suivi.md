@@ -4,10 +4,10 @@ Note ton avancée après chaque TP. Reste factuel, sans données personnelles. C
 
 ## TP00 — Diagnostic
 
-- Hypothèse :
-- Action :
-- Résultat :
-- Point non compris :
+- Hypothèse : Étiquette illisible ou problème de largeur à cause d'une boîte fixe et d'un manque de box-sizing.
+- Action : Remplacement par `<main>`, réordonnancement des titres, labels reliés aux champs, bouton submit natif, `box-sizing: border-box`, fonctions JS de validation codées.
+- Résultat : Navigation clavier fonctionnelle, aucun débordement à 360 px, tests JS validés.
+- Point non compris : Aucun.
 
 ## TP01 — Démarrer
 

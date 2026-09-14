@@ -18,10 +18,10 @@ Note ton avancée après chaque TP. Reste factuel, sans données personnelles. C
 
 ## TP02 — HTML
 
-- Hypothèse :
-- Action :
-- Résultat :
-- Point non compris :
+- Hypothèse : Si on remplace `main` par `div`, visuellement rien ne change, mais les lecteurs d'écran perdent le repère sémantique principal.
+- Action : Déplacement de `h1` dans `header`, ajout d'une `section aria-labelledby="titre-chat"` avec `h2 id="titre-chat"`, `ul#messages` vide avec aria-live, `footer` avec `span#version`.
+- Résultat : Arbre d'accessibilité structuré avec région principale et repères clairs.
+- Point non compris : Aucun.
 
 ## TP03 — Formulaire
 

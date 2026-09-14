@@ -25,10 +25,10 @@ Note ton avancée après chaque TP. Reste factuel, sans données personnelles. C
 
 ## TP03 — Formulaire
 
-- Hypothèse :
-- Action :
-- Résultat :
-- Point non compris :
+- Hypothèse : Dans un `textarea`, la touche Entrée insère un saut de ligne et ne soumet pas le formulaire.
+- Action : Ajout du formulaire avec `label`, `textarea` requis limité à 280 caractères et bouton submit. Intégration du script `app.js`.
+- Résultat : Entrée saute une ligne, Tab puis Entrée sur le bouton soumet et met à jour le statut avec « Interface prête ; les réponses arrivent au J2. ».
+- Point non compris : Aucun.
 
 ## TP04 — Responsive
 

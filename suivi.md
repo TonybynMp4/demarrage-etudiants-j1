@@ -58,9 +58,9 @@ Si Node ou Git bloque, note le message exact et continue en local sans attendre.
 
 ## Auto-revue finale
 
-- Ce qui s'affiche bien :
-- Ce qui reste fragile au clavier ou à 360 px :
-- Ce que je veux revoir en capsule :
+- Ce qui s'affiche bien : En-tête, section discussion, formulaire accessible avec focus visible, pied de page et version, mise en page fluide et centrée. (Tout quoi)
+- Ce qui reste fragile au clavier ou à 360 px : Aucun problème observé, validation au clavier fonctionnelle et pas de défilement horizontal.
+- Ce que je veux revoir en capsule : La gestion dynamique des messages avec `aria-live` et l'envoi au clavier avec Ctrl+Entrée sur un textarea.
 
 ## Rappel Git prudent
 

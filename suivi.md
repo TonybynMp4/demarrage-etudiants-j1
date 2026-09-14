@@ -32,10 +32,10 @@ Note ton avancée après chaque TP. Reste factuel, sans données personnelles. C
 
 ## TP04 — Responsive
 
-- Hypothèse :
-- Action :
-- Résultat :
-- Point non compris, test 360 / 1280 :
+- Hypothèse : Sans règle de césure (`overflow-wrap`), un mot de 60 lettres fait déborder le conteneur horizontalement sur écran mobile.
+- Action : `box-sizing: border-box` universel, marge du `body` à zéro, conteneurs centrés à 100% avec `max-width: 760px`, formulaire flex en colonne, styles `:focus-visible`, gestion de césure sur les messages.
+- Résultat : Aucun défilement horizontal ni débordement à 360 px et 1280 px.
+- Point non compris, test 360 / 1280 : Aucun.
 
 ## Commandes essayées
 

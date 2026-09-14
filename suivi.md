@@ -11,10 +11,10 @@ Note ton avancée après chaque TP. Reste factuel, sans données personnelles. C
 
 ## TP01 — Démarrer
 
-- Hypothèse :
-- Action :
-- Résultat :
-- Point non compris :
+- Hypothèse : Si le JS ne charge pas, le titre et le texte s'affichent normalement mais le statut reste vide.
+- Action : `cd atelier`, vérification de Node et lancement du serveur avec `npm start`, ouverture sur `http://127.0.0.1:3000`.
+- Résultat : Page affichée avec le statut « Votre point de départ est prêt. ».
+- Point non compris : Aucun.
 
 ## TP02 — HTML
 
@@ -49,9 +49,10 @@ git diff
 
 Mes essais :
 
-- Dossier :
-- Commande et résultat :
-- Problème exact si blocage :
+- Dossier : atelier
+- Commande et résultat : `npm start` -> serveur démarré sur http://127.0.0.1:3000.
+- Commande et résultat : `npm test` -> 9/9 tests passés.
+- Problème exact si blocage : Aucun.
 
 Si Node ou Git bloque, note le message exact et continue en local sans attendre. Le double-clic sur `diagnostic/index.html` ne remplace pas le serveur pour les modules et l'envoi du TP03.
 

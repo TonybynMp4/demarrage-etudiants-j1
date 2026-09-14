@@ -1,3 +1,7 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: system-ui, Arial, sans-serif;
@@ -7,7 +11,8 @@ body {
 }
 
 .page {
-  width: 960px;
+  width: 100%;
+  max-width: 960px;
   margin: 0 auto;
   padding: 16px;
   background: #f6f6f6;
@@ -19,6 +24,7 @@ body {
 }
 
 .titre-geant {
+  margin: 0 0 8px;
   font-size: 1.8rem;
   font-weight: bold;
 }
@@ -27,12 +33,15 @@ body {
   background: #fff;
   border: 2px solid #333;
   padding: 24px;
-  width: 960px;
+  width: 100%;
 }
 
 .etiquette {
+  display: block;
+  margin-top: 12px;
   margin-bottom: 4px;
   color: #222;
+  font-weight: bold;
 }
 
 .contenu p {
@@ -40,21 +49,23 @@ body {
 }
 
 input {
-  width: 960px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
   padding: 8px;
   border: 1px solid #888;
 }
 
 .bouton {
+  display: block;
   width: 200px;
+  max-width: 100%;
   padding: 10px;
-  margin-top: 12px;
-  background: #ddd;
-  text-align: center;
-  cursor: pointer;
-}
-
-.bouton {
+  margin-top: 16px;
   background: #1a56db;
   color: #fff;
+  border: none;
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
 }

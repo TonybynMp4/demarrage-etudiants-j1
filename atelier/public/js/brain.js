@@ -14,16 +14,32 @@ export function validateMessage(raw) {
   return { ok: true, value };
 }
 
+const SALUTATIONS = ['salut', 'bonjour', 'coucou', 'hello'];
+const MOTS_AIDE = ['aide', 'help'];
+const MOTS_TEST = ['test'];
+
+function contientMot(texte, mots) {
+  return mots.some((mot) => new RegExp(`\\b${mot}\\b`, 'iu').test(texte));
+}
+
 export function replyTo(message) {
   const texte = message.trim().toLowerCase();
-  if (texte === 'salut' || texte === 'bonjour') {
+  if (contientMot(texte, SALUTATIONS)) {
     return 'Salut ! Comment puis-je vous aider ?';
   }
-  if (texte === 'aide') {
-    return 'Je connais « salut », « bonjour », « aide » et « test ».';
+  if (contientMot(texte, MOTS_AIDE)) {
+    return 'Je connais « salut », « bonjour », « aide » et « test ». Tapez /aide pour les commandes.';
   }
-  if (texte === 'test') {
+  if (contientMot(texte, MOTS_TEST)) {
     return 'Test reçu, tout fonctionne.';
   }
   return "Je n'ai pas de réponse toute faite pour ça, mais je vous lis.";
+}
+
+export function isCommand(text) {
+  return text.trim().startsWith('/');
+}
+
+export function commandHelp() {
+  return 'Commandes disponibles : /aide (cette liste), /effacer (vider la conversation), /compte (nombre de messages).';
 }

@@ -1,4 +1,4 @@
-import { validateMessage, replyTo } from './brain.js';
+import { validateMessage, replyTo, isCommand, commandHelp } from './brain.js';
 import { renderMessages } from './view.js';
 
 const formulaire = document.querySelector('#chat-form');
@@ -43,13 +43,29 @@ formulaire?.addEventListener('submit', (event) => {
   }
   const { value } = resultat;
   historique.push({ role: 'user', text: value });
-  historique.push({ role: 'assistant', text: replyTo(value) });
+  historique.push({ role: 'assistant', text: isCommand(value) ? handleCommand(value) : replyTo(value) });
   renderMessages(historique, liste);
   sauvegarder();
   champ.value = '';
   statut.textContent = '';
   champ.focus();
 });
+
+function handleCommand(commande) {
+  const nom = commande.trim().toLowerCase();
+  if (nom === '/aide') {
+    return commandHelp();
+  }
+  if (nom === '/effacer') {
+    historique.length = 0;
+    localStorage.removeItem(CLE_HISTORIQUE);
+    return 'Conversation effacée.';
+  }
+  if (nom === '/compte') {
+    return `Nombre de messages : ${historique.length}.`;
+  }
+  return `Commande inconnue : ${commande}. Tapez /aide pour la liste.`;
+}
 
 boutonEffacer?.addEventListener('click', () => {
   if (!confirm('Effacer toute la conversation ?')) {

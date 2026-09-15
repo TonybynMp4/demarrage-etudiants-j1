@@ -65,6 +65,15 @@ Recopiez ce bloc autant de fois que nécessaire.
 - Je n'ai pas compris : —
 - Réponse à la question « Dans le suivi » du TP : parce que `brain.js` ne dépend d'aucune API navigateur, Node peut l'exécuter directement.
 
+### TP13 — Défis (commandes, correspondance souple, gras sans danger, test navigateur)
+
+- J'ai prédit : que les commandes (`/aide`, `/effacer`, `/compte`) devaient être traitées avant `replyTo`, et qu'un `\b` en regex éviterait de confondre « test » et « tester ».
+- Nous avons fait : ajout de `isCommand`/`commandHelp` dans `brain.js`, d'un `handleCommand` dans `app.js` pour `/aide`, `/effacer`, `/compte` ; correspondance par mot (`\btest\b`) plutôt que par égalité stricte, pour reconnaître un mot dans une phrase ; rendu du `**gras**` sans `innerHTML` dans `view.js` (découpage du texte et création de `<strong>` avec `textContent`) ; écriture de `browser/chat.spec.js`.
+- J'ai observé : `\btest\b` ne matche pas à l'intérieur de « tester », parce que la frontière de mot n'existe qu'entre un caractère de mot et un caractère qui n'en est pas un.
+- J'ai compris : on peut construire du HTML riche (du gras) sans jamais passer par `innerHTML`, en construisant les nœuds à la main et en gardant le texte brut dans `textContent`.
+- Je n'ai pas compris : —
+- Réponse à la question « Dans le suivi » du TP : le test navigateur (`chat.spec.js`) n'a pas pu être exécuté dans cet environnement (pas de Node.js/npm disponible ici) ; à lancer avec `npm ci && npx playwright install chromium && npm run test:browser` sur une machine équipée.
+
 ## Épreuve de l'explication (TP12)
 
 - Ce que je n'ai pas su expliquer : —

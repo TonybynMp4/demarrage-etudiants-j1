@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { validateMessage, replyTo } from '../public/js/brain.js';
+import { validateMessage, replyTo, isCommand, commandHelp } from '../public/js/brain.js';
 
 test('validateMessage refuse un message vide', () => {
   const resultat = validateMessage('   ');
@@ -26,13 +26,32 @@ test('replyTo répond à une salutation', () => {
 });
 
 test('replyTo répond à la demande d\'aide', () => {
-  assert.equal(replyTo('aide'), 'Je connais « salut », « bonjour », « aide » et « test ».');
+  assert.equal(replyTo('aide'), 'Je connais « salut », « bonjour », « aide » et « test ». Tapez /aide pour les commandes.');
 });
 
 test('replyTo répond à test', () => {
   assert.equal(replyTo('test'), 'Test reçu, tout fonctionne.');
 });
 
+test('replyTo reconnaît un mot dans une phrase', () => {
+  assert.equal(replyTo('bonjour à tous'), 'Salut ! Comment puis-je vous aider ?');
+});
+
+test('replyTo ne confond pas « test » et « tester »', () => {
+  assert.notEqual(replyTo('je vais tester ça'), 'Test reçu, tout fonctionne.');
+});
+
 test('replyTo donne une réponse par défaut sinon', () => {
   assert.equal(replyTo('quelque chose d\'inconnu'), "Je n'ai pas de réponse toute faite pour ça, mais je vous lis.");
+});
+
+test('isCommand détecte une commande', () => {
+  assert.equal(isCommand('/aide'), true);
+  assert.equal(isCommand('bonjour'), false);
+});
+
+test('commandHelp liste les commandes', () => {
+  assert.match(commandHelp(), /\/aide/);
+  assert.match(commandHelp(), /\/effacer/);
+  assert.match(commandHelp(), /\/compte/);
 });
